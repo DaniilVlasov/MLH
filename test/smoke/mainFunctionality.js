@@ -1,4 +1,7 @@
-const sel = require('../../data/selectors.json')
+const sel = require('../../data/selectors.json');
+const data = require('../../data/testData.json');
+const inputValues4 = require('../../helpers/inputValues4');
+const inputValues4andClick = require('../../helpers/inputValues4');
 
 describe('Checking the main functionality', function () {
 
@@ -6,44 +9,31 @@ describe('Checking the main functionality', function () {
 
         it('TC-021 Create button is clickable after 1-4 are filled in', function () {
             browser.url('');
-            const inputName = $(sel.name).setValue("Elder");
-            const inputGender = $$(sel.gender)[1].click();
-            const inputAge = $(sel.age).setValue(100);
-            const click = $(sel.storyClick).click();
-            const input = $$(sel.storyType)[6].click();
-            const create = $(sel.created).isEnabled();
+            const inputName = $(sel.name).setValue(data.name);
+            const inputGender = $$(sel.gender)[data.gender.he].click();
+            const inputAge = $(sel.age).setValue(data.age);
+            const click = $(sel.story).click();
+            const inputStory = $$(sel.storyType)[data.storyType].click();
+            const create = $(sel.create).isEnabled();
             expect(create).toEqual(true);
         });
 
-        // it('TC-022 Gender He', function () {
-        //     const gender = $$(sel.gender)[0].isDisplayed();
-        //     expect(gender).toEqual(true);
-        // });
-        //
-        // it('TC-023 Gender She', function () {
-        //     const gender = $$(sel.gender)[1].isDisplayed();
-        //     expect(gender).toEqual(true);
-        // });
-        //
-        // it('TC-024 Gender It', function () {
-        //     const gender = $$(sel.gender)[2].isDisplayed();
-        //     expect(gender).toEqual(true);
-        // });
-        //
-        // it('TC-025 Age', function () {
-        //     const label = $(sel.age).isDisplayed();
-        //     expect(label).toEqual(true);
-        // });
-        //
-        // it('TC-026 Story', function () {
-        //     const label = $(sel.story).isDisplayed();
-        //     expect(label).toEqual(true);
-        // });
-        //
-        // it('TC-027 Create', function () {
-        //     const label = $(sel.created).isDisplayed();
-        //     expect(label).toEqual(true);
-        // });
+        it('TC-022 Create button is clickable after 1-4 are filled in', function () {
+            browser.url('');
+            inputValues4(data.name, data.gender.he, data.age, data.storyType)
+            const create = $(sel.create).isEnabled();
+            expect(create).toEqual(true);
+        });
 
+    });
+
+    describe('Other paths', function (){
+
+        it('TC-023 gender she is working', function () {
+            browser.url('');
+            inputValues4andClick(data.name, data.gender.she, data.age, data.storyType);
+            const btn = $(sel.tryAgain).isDisplayed();
+            expect(btn).toEqual(true);
+        });
     });
 });

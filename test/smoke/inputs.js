@@ -11,17 +11,17 @@ describe('Inputs', function () {
             expect(name).toEqual(true);
         });
 
-        it('TC-015 Gender He', function () {
+        it('TC-015 Gender (He)', function () {
             const gender = $$(sel.gender)[0].isDisplayed();
             expect(gender).toEqual(true);
         });
 
-        it('TC-016 Gender She', function () {
+        it('TC-016 Gender (She)', function () {
             const gender = $$(sel.gender)[1].isDisplayed();
             expect(gender).toEqual(true);
         });
 
-        it('TC-017 Gender It', function () {
+        it('TC-017 Gender (It)', function () {
             const gender = $$(sel.gender)[2].isDisplayed();
             expect(gender).toEqual(true);
         });
@@ -43,7 +43,42 @@ describe('Inputs', function () {
 
     });
 
-    describe('Placeholders are correct', function (){
-
-    });
+    // describe('Placeholders are correct', function (){
+    //
+    //     it('TC-014 Name is correct', function () {
+    //         const text = $(sel.name).getAttribute('placeholder');
+    //         expect(text).toEqual(exp.PlaceholderName);
+    //     });
+    //
+    //     it('TC-015 Gender (He) is correct', function () {
+    //         const text = $(sel.gender)[0].getText();
+    //         expect(text).toEqual(exp.PlaceholderGender0);
+    //     });
+    //
+    //     it('TC-016 Gender (She) is correct', function () {
+    //         const text = $(sel.gender)[1].getText();
+    //         expect(text).toEqual(exp.PlaceholderGender1);
+    //     });
+    //
+    //     it('TC-017 Gender (It) is correct', function () {
+    //         const text = $(sel.gender)[2].getText();
+    //         expect(text).toEqual(exp.PlaceholderGender2);
+    //     });
+    //
+    //     it('TC-018 Age is correct', function () {
+    //         const text = $(sel.age).getAttribute('placeholder');
+    //         expect(text).toEqual(exp.PlaceholderAge);
+    //     });
+    //
+    //     it('TC-019 Story is correct', function () {
+    //         const text = $(sel.name).getAttribute('placeholder');
+    //         expect(text).toEqual(exp.PlaceholderName);
+    //     });
+    //
+    //     it('TC-020 Create is correct', function () {
+    //         const text = $(sel.name).getAttribute('placeholder');
+    //         expect(text).toEqual(exp.PlaceholderName);
+    //     });
+    //
+    // });
 });
